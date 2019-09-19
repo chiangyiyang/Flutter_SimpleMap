@@ -21,8 +21,8 @@ class MapPage extends StatelessWidget {
         ),
       ),
       Marker(
-        // width: 1000.0,
-        // height: 1000.0,
+        width: 100.0,
+        height: 100.0,
         point: LatLng(23.5, 120.5),
         builder: (ctx) => Container(
           child: Icon(
@@ -31,6 +31,11 @@ class MapPage extends StatelessWidget {
             size: 60.0,
           ),
         ),
+        // anchorPos: AnchorPos.align(AnchorAlign.left)
+        // anchorPos: AnchorPos.align(AnchorAlign.right)
+        // anchorPos: AnchorPos.align(AnchorAlign.top)
+        // anchorPos: AnchorPos.align(AnchorAlign.bottom)
+        anchorPos: AnchorPos.align(AnchorAlign.center)
       ),
     ];
 
