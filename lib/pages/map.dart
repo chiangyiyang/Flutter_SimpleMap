@@ -11,8 +11,31 @@ class MapPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var markers = <Marker>[
+      Marker(
+        width: 40.0,
+        height: 40.0,
+        point: LatLng(24.5, 121.0),
+        builder: (ctx) => Container(
+          child: FlutterLogo(),
+        ),
+      ),
+      Marker(
+        // width: 500.0,
+        // height: 500.0,
+        point: LatLng(23.5, 120.5),
+        builder: (ctx) => Container(
+          child: Icon(
+            Icons.location_on,
+            color: Colors.pink,
+            size: 40.0,
+          ),
+        ),
+      ),
+    ];
+
     return Scaffold(
-      appBar: AppBar(title: Text('Home')),
+      appBar: AppBar(title: Text('Map')),
       body: Padding(
         padding: EdgeInsets.all(8.0),
         child: FlutterMap(
@@ -25,6 +48,7 @@ class MapPage extends StatelessWidget {
                 urlTemplate:
                     'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
                 subdomains: ['a', 'b', 'c']),
+            MarkerLayerOptions(markers: markers),
           ],
         ),
       ),
