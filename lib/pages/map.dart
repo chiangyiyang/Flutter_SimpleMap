@@ -21,18 +21,29 @@ class MapPage extends StatelessWidget {
         ),
       ),
       Marker(
-        // width: 500.0,
-        // height: 500.0,
+        // width: 1000.0,
+        // height: 1000.0,
         point: LatLng(23.5, 120.5),
         builder: (ctx) => Container(
           child: Icon(
             Icons.location_on,
             color: Colors.pink,
-            size: 40.0,
+            size: 60.0,
           ),
         ),
       ),
     ];
+
+    var circleMarkers = <CircleMarker>[
+      CircleMarker(
+          point: LatLng(23.5, 120.5),
+          color: Colors.blue.withOpacity(0.7),
+          borderStrokeWidth: 2,
+          useRadiusInMeter: true,
+          radius: 20000 // 2000 meters | 2 km
+          ),
+    ];
+
 
     return Scaffold(
       appBar: AppBar(title: Text('Map')),
@@ -48,6 +59,7 @@ class MapPage extends StatelessWidget {
                 urlTemplate:
                     'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
                 subdomains: ['a', 'b', 'c']),
+            CircleLayerOptions(circles: circleMarkers),
             MarkerLayerOptions(markers: markers),
           ],
         ),
